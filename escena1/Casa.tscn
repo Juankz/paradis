@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://escena1/arte/background.png" type="Texture" id=1]
+[ext_resource path="res://escena1/Ventana.tscn" type="PackedScene" id=2]
+[ext_resource path="res://escena1/Cuadro.tscn" type="PackedScene" id=3]
+[ext_resource path="res://escena1/arte/lampara.png" type="Texture" id=4]
+[ext_resource path="res://escena1/arte/sofa.png" type="Texture" id=5]
+[ext_resource path="res://escena1/arte/biblioteca.png" type="Texture" id=6]
+
+[node name="Casa" type="Node2D"]
+
+[node name="Fondo" type="Sprite" parent="."]
+
+transform/pos = Vector2( 3336.24, 267.473 )
+transform/scale = Vector2( 1.37011, 0.808427 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 5000, 1000 )
+
+[node name="Ventana" parent="." instance=ExtResource( 2 )]
+
+[node name="Cuadro1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 29.1007, 191.216 )
+transform/scale = Vector2( 0.277741, 0.277741 )
+
+[node name="lampara" type="Sprite" parent="."]
+
+transform/pos = Vector2( 283.351, 354.894 )
+transform/scale = Vector2( 0.853269, 0.853269 )
+texture = ExtResource( 4 )
+
+[node name="sofa" type="Sprite" parent="."]
+
+transform/pos = Vector2( 713.694, 444.195 )
+transform/scale = Vector2( 0.961958, 0.961958 )
+texture = ExtResource( 5 )
+
+[node name="biblioteca" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1105.26, 316.763 )
+transform/scale = Vector2( 0.923356, 0.923356 )
+texture = ExtResource( 6 )
+
+
