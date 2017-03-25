@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://escena1/Escena1.gd" type="Script" id=1]
 [ext_resource path="res://escena1/Casa.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escena1/collar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/arrowLeft.png" type="Texture" id=4]
-[ext_resource path="res://escena1/gatita_animado.tscn" type="PackedScene" id=5]
-[ext_resource path="res://escena1/gatito_animado.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/boton/normal_verde.tres" type="StyleBox" id=5]
+[ext_resource path="res://escena1/gatita_animado.tscn" type="PackedScene" id=6]
+[ext_resource path="res://escena1/gatito_animado.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -17,7 +18,7 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("collar:rect/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 1.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -37, -759 ), Vector2( -37, -37 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 1.3, 1.4, 1.5 ), "transitions":FloatArray( 4, 4, 1, 4 ), "update":0, "values":[ Vector2( -37, -759 ), Vector2( -37, -37 ), Vector2( -37, -51 ), Vector2( -37, -37 ) ] }
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,10 +26,10 @@ script/script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-transform/pos = Vector2( -914.897, -132.907 )
+transform/pos = Vector2( 508.13, 304.413 )
 anchor_mode = 1
 rotating = false
-current = false
+current = true
 zoom = Vector2( 1, 1 )
 limit/left = -10000000
 limit/top = -10000000
@@ -49,17 +50,13 @@ editor/display_folded = true
 transform/pos = Vector2( 27.8272, -9.37738 )
 z/z = -2
 
-[node name="Cuadro1" parent="Casa"]
-
-transform/pos = Vector2( 1446.77, 284.36 )
-
 [node name="lampara" parent="Casa"]
 
 transform/pos = Vector2( 91.7177, 342.531 )
 
 [node name="sofa" parent="Casa"]
 
-transform/pos = Vector2( 522.06, 431.831 )
+transform/pos = Vector2( 411.33, 431.831 )
 
 [node name="biblioteca" parent="Casa"]
 
@@ -67,6 +64,7 @@ transform/pos = Vector2( 913.623, 304.399 )
 
 [node name="collar" parent="." instance=ExtResource( 3 )]
 
+editor/display_folded = true
 visibility/behind_parent = true
 margin/left = -37.0
 margin/top = -759.0
@@ -77,7 +75,7 @@ margin/bottom = -80.0
 
 editor/display_folded = true
 
-[node name="Button" type="Button" parent="collar"]
+[node name="back" type="Button" parent="collar"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -91,6 +89,27 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 icon = ExtResource( 4 )
+flat = false
+
+[node name="ok" type="Button" parent="collar"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 476.0
+margin/top = 561.0
+margin/right = 645.0
+margin/bottom = 632.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
 flat = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -107,11 +126,11 @@ autoplay = ""
 [node name="gatita" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 557.03, 330.888 )
+transform/pos = Vector2( 448.351, 330.888 )
 transform/scale = Vector2( 3.14692, 3.54522 )
 z/z = -1
 
-[node name="gatita_animado" parent="gatita" instance=ExtResource( 5 )]
+[node name="gatita_animado" parent="gatita" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1.39172, 15.8726 )
 transform/scale = Vector2( 0.317771, 0.28207 )
@@ -119,17 +138,19 @@ transform/scale = Vector2( 0.317771, 0.28207 )
 [node name="gatito" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 819.759, 525.4 )
+transform/pos = Vector2( 754.141, 496.692 )
 transform/scale = Vector2( 2.8319, 3.33377 )
 
-[node name="gatito_animado" parent="gatito" instance=ExtResource( 6 )]
+[node name="gatito_animado" parent="gatito" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 transform/pos = Vector2( -27.5861, -15.8005 )
 transform/scale = Vector2( 0.35312, 0.299961 )
 z/z = -1
 
-[connection signal="pressed" from="collar/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="collar/back" to="." method="_on_Button_pressed"]
+
+[connection signal="pressed" from="collar/ok" to="." method="_on_ok_pressed"]
 
 
 [editable path="Casa"]

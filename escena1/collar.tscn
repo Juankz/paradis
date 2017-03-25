@@ -18,7 +18,7 @@ margin/bottom = 679.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 555.116, 341.53 )
+transform/pos = Vector2( 555.116, 289.53 )
 texture = ExtResource( 2 )
 
 [node name="LineEdit" type="LineEdit" parent="Sprite"]
@@ -28,11 +28,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -53.0
+margin/left = -147.0
 margin/top = -20.0
-margin/right = 67.0
+margin/right = 161.0
 margin/bottom = 30.0
-placeholder/text = "EIFFEL"
+placeholder/text = "AAA"
 placeholder/alpha = 0.626667
 align = 3
 max_length = 10

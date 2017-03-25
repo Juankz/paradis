@@ -54,3 +54,7 @@ func _on_Button_pressed():
 		get_node("collar/Sprite/LineEdit").release_focus()
 		get_node("AnimationPlayer").play_backwards("collar_aparece")
 	
+
+
+func _on_ok_pressed():
+	get_tree().change_scene("res://escena1/Escena1_b.tscn")
