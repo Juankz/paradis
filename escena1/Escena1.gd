@@ -16,9 +16,9 @@ func _input(event):
 	if(estado == _seleccionar_avatar):
 		if(event.type == InputEvent.MOUSE_BUTTON && event.is_pressed()):
 			if(obtener_area(get_node("gatita")).has_point(event.pos)):
-				seleccionar_avatar("F")
+				seleccionar_avatar("f")
 			elif(obtener_area(get_node("gatito")).has_point(event.pos)):
-				seleccionar_avatar("M")
+				seleccionar_avatar("m")
 			update()
 	elif(estado == _leer_nombre):
 		pass
@@ -57,4 +57,6 @@ func _on_Button_pressed():
 
 
 func _on_ok_pressed():
+	var nombre = get_node("collar/Sprite/LineEdit").get_text()
+	get_node("/root/usuario_global").nombre = nombre
 	get_tree().change_scene("res://escena1/Escena1_b.tscn")

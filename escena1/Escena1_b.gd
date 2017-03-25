@@ -6,9 +6,11 @@ extends Node2D
 # var b="textvar"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	var genero = get_node("/root/usuario_global").genero
+	var nombre = get_node("/root/usuario_global").nombre
+	var primera_frase=get_node("/root/textor").primerafrase(genero,nombre)
+	get_node("gatit/Panel/Label").set_text(primera_frase)
+	print("ready")
 
 
 
@@ -19,3 +21,11 @@ func _on_Area2D_area_enter( area ):
 
 func _on_Cuadro_fall():
 	get_node("TextureFrame").hide()
+
+
+func _on_Area2D_area_exit( area ):
+	get_node("TextureFrame").hide()
+
+
+func _on_salida_area_enter( area ):
+	print("Felicitaciones")

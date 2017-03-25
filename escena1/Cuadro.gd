@@ -24,7 +24,8 @@ func _process(delta):
 		set_pos(Vector2(get_pos().x,y))
 
 func _input(event):
-	if(event.type == InputEvent.MOUSE_BUTTON && event.pressed && focus):
+	if(focus and ((event.type == InputEvent.MOUSE_BUTTON and event.pressed) or
+	(event.type == InputEvent.KEY && event.scancode == KEY_RETURN and event.pressed))):
 		emit_signal("fall")
 		get_node("AnimationPlayer").play("caer")
 		caer = true

@@ -18,7 +18,8 @@ margin/bottom = 679.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 555.116, 289.53 )
+transform/pos = Vector2( 555.116, 94.4454 )
+transform/scale = Vector2( 0.636788, 0.636788 )
 texture = ExtResource( 2 )
 
 [node name="LineEdit" type="LineEdit" parent="Sprite"]
@@ -32,9 +33,9 @@ margin/left = -147.0
 margin/top = -20.0
 margin/right = 161.0
 margin/bottom = 30.0
-placeholder/text = "AAA"
+placeholder/text = "NOMBRE"
 placeholder/alpha = 0.626667
-align = 3
+align = 1
 max_length = 10
 editable = false
 focus_mode = 1

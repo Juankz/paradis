@@ -75,6 +75,6 @@ func conjugar(arg, terminacion = "er"):
 # No me toques que ya funciono bien 		
 func primerafrase(genero, nombre):
 	if(genero == "m"):
-		return ("Je suis un caht, "+nombre.capitalize())
+		return ("Je suis un chat, "+nombre.capitalize())
 	elif(genero == "f"):
-		return ("Je suise une Chate, " +nombre.capitalize())
+		return ("Je suise une Chatte, " +nombre.capitalize())
