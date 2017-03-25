@@ -1,25 +1,27 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://escena1/Escena1.gd" type="Script" id=1]
 [ext_resource path="res://escena1/Casa.tscn" type="PackedScene" id=2]
 [ext_resource path="res://escena1/collar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/arrowLeft.png" type="Texture" id=4]
 [ext_resource path="res://ui/boton/normal_verde.tres" type="StyleBox" id=5]
-[ext_resource path="res://escena1/musica.ogg" type="AudioStream" id=6]
-[ext_resource path="res://escena1/gatita_animado.tscn" type="PackedScene" id=7]
-[ext_resource path="res://escena1/gatito_animado.tscn" type="PackedScene" id=8]
+[ext_resource path="res://escena1/corte inicio juego.ogg" type="AudioStream" id=6]
+[ext_resource path="res://musica_inicio.gd" type="Script" id=7]
+[ext_resource path="res://escena1/musica.ogg" type="AudioStream" id=8]
+[ext_resource path="res://escena1/gatita_animado.tscn" type="PackedScene" id=9]
+[ext_resource path="res://escena1/gatito_animado.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
 resource/name = "collar_aparece"
-length = 1.5
+length = 0.8
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("collar:rect/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 1.3, 1.4, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -37, -759 ), Vector2( -37, -37 ), Vector2( -37, -51 ), Vector2( -37, -37 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -37, -759 ), Vector2( -37, -37 ), Vector2( -37, -51 ), Vector2( -37, -37 ) ] }
 
 [node name="Node2D" type="Node2D"]
 
@@ -90,13 +92,32 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
+[node name="musica_inicio" type="StreamPlayer" parent="."]
 
 stream/stream = ExtResource( 6 )
 stream/play = true
+stream/loop = false
+stream/volume_db = -1.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+script/script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="musica_inicio"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="musica" type="StreamPlayer" parent="musica_inicio"]
+
+stream/stream = ExtResource( 8 )
+stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
-stream/autoplay = true
+stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
@@ -107,7 +128,7 @@ transform/pos = Vector2( 394.685, 328.601 )
 transform/scale = Vector2( 2.50112, 3.26589 )
 z/z = -1
 
-[node name="gatita_animado" parent="gatita" instance=ExtResource( 7 )]
+[node name="gatita_animado" parent="gatita" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( -1.79219, 19.2633 )
 transform/scale = Vector2( 0.399821, 0.306195 )
@@ -118,7 +139,7 @@ transform/pos = Vector2( 771.195, 290.823 )
 transform/scale = Vector2( 3.49266, 3.15078 )
 z/z = -1
 
-[node name="gatito_animado" parent="gatito" instance=ExtResource( 8 )]
+[node name="gatito_animado" parent="gatito" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -17.5663, -2.97642 )
 transform/scale = Vector2( 0.286315, 0.317381 )
@@ -126,6 +147,10 @@ transform/scale = Vector2( 0.286315, 0.317381 )
 [connection signal="pressed" from="collar/back" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="collar/ok" to="." method="_on_ok_pressed"]
+
+[connection signal="finished" from="musica_inicio" to="musica_inicio" method="_on_musica_inicio_finished"]
+
+[connection signal="timeout" from="musica_inicio/Timer" to="musica_inicio" method="_on_Timer_timeout"]
 
 
 [editable path="collar"]

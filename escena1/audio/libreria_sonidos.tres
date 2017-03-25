@@ -1,0 +1,20 @@
+[gd_resource type="SampleLibrary" load_steps=8 format=1]
+
+[ext_resource path="res://escena1/audio/chica.wav" type="Sample" id=1]
+[ext_resource path="res://escena1/audio/chico.wav" type="Sample" id=2]
+[ext_resource path="res://escena1/audio/gata.wav" type="Sample" id=3]
+[ext_resource path="res://escena1/audio/gato.wav" type="Sample" id=4]
+[ext_resource path="res://escena1/audio/hombre.wav" type="Sample" id=5]
+[ext_resource path="res://escena1/audio/mujer.wav" type="Sample" id=6]
+[ext_resource path="res://escena1/audio/presentacion.wav" type="Sample" id=7]
+
+[resource]
+
+samples/chica = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
+samples/chico = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/gata = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/gato = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/hombre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/mujer = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/presentacion = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+
