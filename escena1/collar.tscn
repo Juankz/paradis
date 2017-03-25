@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://escena1/tema.tres" type="Theme" id=1]
+[ext_resource path="res://escena1/arte/collar.png" type="Texture" id=2]
+[ext_resource path="res://escena1/collar.gd" type="Script" id=3]
+
+[node name="collar" type="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1119.0
+margin/bottom = 679.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 555.116, 94.4454 )
+transform/scale = Vector2( 0.636788, 0.636788 )
+texture = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="Sprite"]
+
+rect/rotation = -0.0870744
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -147.0
+margin/top = -20.0
+margin/right = 161.0
+margin/bottom = 30.0
+placeholder/text = "NOMBRE"
+placeholder/alpha = 0.626667
+align = 1
+max_length = 10
+editable = false
+focus_mode = 1
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+script/script = ExtResource( 3 )
+
+
