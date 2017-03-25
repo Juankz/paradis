@@ -12,16 +12,13 @@ func _ready():
 	get_node("gatit/Panel/Label").set_text(primera_frase)
 	print("ready")
 
-
-
-
 func _on_Area2D_area_enter( area ):
 	get_node("TextureFrame").show()
 
 
 func _on_Cuadro_fall():
 	get_node("TextureFrame").hide()
-
+	get_node("SamplePlayer").play("gata")
 
 func _on_Area2D_area_exit( area ):
 	get_node("TextureFrame").hide()
@@ -29,3 +26,23 @@ func _on_Area2D_area_exit( area ):
 
 func _on_salida_area_enter( area ):
 	print("Felicitaciones")
+	get_node("AnimationPlayer").play("felicitaciones")
+
+
+func _on_Cuadro1_fall():
+	print("gato fall")
+	get_node("SamplePlayer").play("gato")
+
+
+func _on_Cuadro_2_fall():
+	get_node("SamplePlayer").play("hombre")
+
+
+func _on_Cuadro3_fall():
+	get_node("SamplePlayer").play("mujer")
+
+func _on_Cuadro4_fall():
+	get_node("SamplePlayer").play("chica")
+
+func _on_Cuadro5_fall():
+	get_node("SamplePlayer").play("chico")

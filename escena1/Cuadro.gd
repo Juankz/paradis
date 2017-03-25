@@ -9,6 +9,7 @@ var area_gato
 var caer = false
 var focus = false
 var y_origin
+var pista
 signal fall
 
 func _ready():

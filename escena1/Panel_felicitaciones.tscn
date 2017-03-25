@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://escena1/tema.tres" type="Theme" id=1]
+[ext_resource path="res://luckiest_guy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://escena1/animacion_gata.tres" type="SpriteFrames" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 100
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.143799, 0.256055, 0.296875, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[node name="Panel_felicitaciones" type="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = -188.0
+margin/top = -25.0
+margin/right = 1233.0
+margin/bottom = 654.0
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 437.0
+margin/top = 189.0
+margin/right = 745.0
+margin/bottom = 289.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.988281, 0.509583, 0, 1 )
+text = "BRAVO"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 588.789, 416.814 )
+frames = ExtResource( 3 )
+animation = "caminar"
+frame = 1
+playing = true
+
+[node name="Panel" type="Panel" parent="AnimatedSprite"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -95.0
+margin/top = 86.0
+margin/right = 88.0
+margin/bottom = 93.0
+custom_styles/panel = SubResource( 2 )
+
+
