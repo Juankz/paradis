@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=1]
+[gd_scene load_steps=38 format=1]
 
 [ext_resource path="res://escena1/Escena1_b.gd" type="Script" id=1]
 [ext_resource path="res://escena1/arte/background.png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://escena1/musica.ogg" type="AudioStream" id=23]
 [ext_resource path="res://escena1/audio/libreria_sonidos.tres" type="SampleLibrary" id=24]
 [ext_resource path="res://escena1/Panel_felicitaciones.tscn" type="PackedScene" id=25]
+[ext_resource path="res://ui/boton/normal_verde.tres" type="StyleBox" id=26]
+[ext_resource path="res://ui/arrowLeft.png" type="Texture" id=27]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -68,12 +70,12 @@ tracks/0/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=6]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -90,14 +92,14 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 
 font/size = 29
 font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 20 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 
 length = 1.0
 loop = true
@@ -108,12 +110,12 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 554, 127 ), Vector2( 554, 159 ), Vector2( 554, 127 ) ] }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 
 resource/name = "felicitaciones"
 length = 0.7
@@ -427,7 +429,7 @@ velocidad = 400.0
 transform/pos = Vector2( -16.6758, -69.4388 )
 transform/scale = Vector2( 5.23604, 5.31104 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 2.47006, 0, 0, 1.97447, 4.22488, 9.92466 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -439,7 +441,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( 4.22488, 9.92466 )
 transform/scale = Vector2( 2.47006, 1.97447 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
@@ -454,7 +456,7 @@ margin/left = -101.0
 margin/top = -285.0
 margin/right = 122.0
 margin/bottom = -121.0
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 6 )
 script/script = ExtResource( 19 )
 
 [node name="Label" type="Label" parent="gatit/Panel"]
@@ -467,7 +469,7 @@ margin/left = 7.0
 margin/top = -1.0
 margin/right = 216.0
 margin/bottom = 136.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "Je suis una chat"
 align = 1
 valign = 1
@@ -504,7 +506,7 @@ stretch_mode = 0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/tap = SubResource( 9 )
+anims/tap = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -550,7 +552,7 @@ editor/display_folded = true
 transform/pos = Vector2( 4422.19, 182.758 )
 transform/scale = Vector2( 4.59727, 5.80507 )
 input/pickable = true
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -560,7 +562,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="salida"]
 
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 trigger = false
 _update_shape_index = 0
 
@@ -593,21 +595,96 @@ margin/bottom = 647.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/felicitaciones = SubResource( 11 )
+anims/felicitaciones = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="fall" from="habitacion/cuadros/Cuadro" to="." method="_on_Cuadro_fall"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[connection signal="area_enter" from="habitacion/cuadros/Cuadro/Area2D" to="habitacion/cuadros/Cuadro" method="_on_Area2D_area_enter"]
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="izq" type="Button" parent="CanvasLayer/Control"]
+
+anchor/top = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 70.0
+margin/top = -484.0
+margin/right = 132.0
+margin/bottom = -540.0
+custom_styles/hover = ExtResource( 26 )
+custom_styles/pressed = ExtResource( 26 )
+custom_styles/focus = ExtResource( 26 )
+custom_styles/normal = ExtResource( 26 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 27 )
+flat = false
+
+[node name="der" type="Button" parent="CanvasLayer/Control"]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+rect/rotation = -179.8
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -914.0
+margin/top = -531.0
+margin/right = -964.0
+margin/bottom = -581.0
+custom_styles/disabled = ExtResource( 26 )
+custom_styles/normal = ExtResource( 26 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 27 )
+flat = false
+
+[connection signal="pressed" from="habitacion/mensajes/gata/Button" to="habitacion/mensajes/gata/Button" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="habitacion/mensajes/gato/Button" to="habitacion/mensajes/gato/Button" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="habitacion/mensajes/hombre/Button" to="habitacion/mensajes/hombre/Button" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="habitacion/mensajes/mujer/Button" to="habitacion/mensajes/mujer/Button" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="habitacion/mensajes/chica/Button" to="habitacion/mensajes/chica/Button" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="habitacion/mensajes/chico/Button" to="habitacion/mensajes/chico/Button" method="_on_Button_pressed"]
+
+[connection signal="fall" from="habitacion/cuadros/Cuadro" to="." method="_on_Cuadro_fall"]
 
 [connection signal="area_enter" from="habitacion/cuadros/Cuadro/Area2D" to="." method="_on_Area2D_area_enter"]
 
-[connection signal="area_exit" from="habitacion/cuadros/Cuadro/Area2D" to="habitacion/cuadros/Cuadro" method="_on_Area2D_area_exit"]
+[connection signal="area_enter" from="habitacion/cuadros/Cuadro/Area2D" to="habitacion/cuadros/Cuadro" method="_on_Area2D_area_enter"]
 
 [connection signal="area_exit" from="habitacion/cuadros/Cuadro/Area2D" to="." method="_on_Area2D_area_exit"]
+
+[connection signal="area_exit" from="habitacion/cuadros/Cuadro/Area2D" to="habitacion/cuadros/Cuadro" method="_on_Area2D_area_exit"]
 
 [connection signal="fall" from="habitacion/cuadros/Cuadro1" to="." method="_on_Cuadro1_fall"]
 
@@ -642,6 +719,10 @@ autoplay = ""
 [connection signal="timeout" from="gatit/Panel/Timer" to="gatit/Panel" method="_on_Timer_timeout"]
 
 [connection signal="area_enter" from="salida" to="." method="_on_salida_area_enter"]
+
+[connection signal="input_event" from="CanvasLayer/Control/izq" to="gatit" method="_on_izq_input_event"]
+
+[connection signal="input_event" from="CanvasLayer/Control/der" to="gatit" method="_on_der_input_event"]
 
 
 [editable path="habitacion/mensajes/gata"]

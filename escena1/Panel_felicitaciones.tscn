@@ -58,7 +58,6 @@ max_lines_visible = -1
 transform/pos = Vector2( 588.789, 416.814 )
 frames = ExtResource( 3 )
 animation = "caminar"
-frame = 1
 playing = true
 
 [node name="Panel" type="Panel" parent="AnimatedSprite"]

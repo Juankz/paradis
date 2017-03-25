@@ -46,3 +46,7 @@ func _on_Cuadro4_fall():
 
 func _on_Cuadro5_fall():
 	get_node("SamplePlayer").play("chico")
+
+
+func _on_izq_pressed():
+	pass # replace with function body
